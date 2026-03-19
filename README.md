@@ -56,14 +56,12 @@ Features:
 java -cp out exp.exp1.udpchat.UdpChatServer 9000
 ```
 
-2. Start multiple clients:
+2. Open chat windows:
 
 ```bash
-java -cp out exp.exp1.udpchat.UdpChatClient 127.0.0.1 9000 Alice 10001
-java -cp out exp.exp1.udpchat.UdpChatClient 127.0.0.1 9000 Bob 10002
+java -cp out exp.exp1.udpchat.UdpChatGUI 127.0.0.1 9000 Alice 10001
+java -cp out exp.exp1.udpchat.UdpChatGUI 127.0.0.1 9000 Bob 10002
 ```
-
-Type a message and press Enter to send.
 
 ### Exp 2: TCP Stream Socket Chat
 
@@ -73,47 +71,28 @@ Type a message and press Enter to send.
 java -cp out exp.exp2.streamchat.StreamServer 9100
 ```
 
-2. Start a client:
+2. Open chat windows (with image/file transfer buttons):
 
 ```bash
-java -cp out exp.exp2.streamchat.StreamClient 127.0.0.1 9100 Alice
+java -cp out exp.exp2.streamchat.StreamChatGUI 127.0.0.1 9100 Alice
+java -cp out exp.exp2.streamchat.StreamChatGUI 127.0.0.1 9100 Bob
 ```
-
-Client commands:
-
-- Text message: type directly
-- Send image: `/img <absolute-path>`
-- Send file: `/file <absolute-path>`
-- Quit: `/quit`
 
 ### Exp 3: Daytime & Echo
 
-UDP Daytime:
+1. Start the 4 servers:
 
 ```bash
 java -cp out exp.exp3.daytime.udp.DaytimeUdpServer 9200
-java -cp out exp.exp3.daytime.udp.DaytimeUdpClient 127.0.0.1 9200
-```
-
-TCP Daytime:
-
-```bash
 java -cp out exp.exp3.daytime.tcp.DaytimeTcpServer 9201
-java -cp out exp.exp3.daytime.tcp.DaytimeTcpClient 127.0.0.1 9201
-```
-
-UDP Echo:
-
-```bash
 java -cp out exp.exp3.echo.udp.EchoUdpServer 9300
-java -cp out exp.exp3.echo.udp.EchoUdpClient 127.0.0.1 9300
+java -cp out exp.exp3.echo.tcp.EchoTcpServer 9301
 ```
 
-TCP Echo:
+2. Open the test panel:
 
 ```bash
-java -cp out exp.exp3.echo.tcp.EchoTcpServer 9301
-java -cp out exp.exp3.echo.tcp.EchoTcpClient 127.0.0.1 9301
+java -cp out exp.exp3.ServiceTestGUI
 ```
 
 ### Exp 4: RMI Student Score System
@@ -124,19 +103,11 @@ java -cp out exp.exp3.echo.tcp.EchoTcpClient 127.0.0.1 9301
 java -cp out exp.exp4.rmi.server.RmiStudentServer 1099 data/student_scores.csv
 ```
 
-2. Start a client:
+2. Open the score management GUI:
 
 ```bash
-java -cp out exp.exp4.rmi.client.RmiStudentClient 127.0.0.1 1099
+java -cp out exp.exp4.rmi.client.RmiStudentGUI 127.0.0.1 1099
 ```
-
-Client commands:
-
-- `add <id> <name> <chinese> <math> <english>`
-- `update <id> <name> <chinese> <math> <english>`
-- `delete <id>`
-- `get <id>`
-- `list`
 
 ### Exp 5: HTTP Socket Client
 
